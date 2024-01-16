@@ -57,3 +57,22 @@ http_archive(
     sha256 = "8150406605389ececb6da07cbcb509d5637a3ab9a24bc69b1101531367d89d74",
     urls = ["https://github.com/bazelbuild/platforms/releases/download/0.0.8/platforms-0.0.8.tar.gz"],
 )
+
+http_archive(
+    name = "nativelink",
+    sha256 = "",
+    urls = [
+        "https://github.com/TraceMachina/nativelink/archive/3acefc73d87b4091fc399dfed4951dd8046626a3.zip",
+    ],
+    integrity = "sha256-j8jxnkk7HkUwiorOoowlfrX8HTkHqv4BB6wvzAQctSY=",
+    strip_prefix = "nativelink-3acefc73d87b4091fc399dfed4951dd8046626a3",
+)
+
+register_execution_platforms(
+    "@nativelink//local-remote-execution/generated/config:platform",
+)
+
+register_toolchains(
+    "@nativelink//local-remote-execution/generated/config:cc-toolchain",
+    "@nativelink//local-remote-execution/generated/java:all",
+)
