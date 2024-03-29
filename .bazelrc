@@ -2,10 +2,6 @@
 # the build.
 common --incompatible_strict_action_env
 
-# Nativelink is currently blocked from working with bzlmod. This is a high prio
-# issue.
-build:nativelink --noenable_bzlmod
-
 # Basic remote execution configuration.
 build:nativelink --define=EXECUTOR=remote
 build:nativelink --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
@@ -14,7 +10,12 @@ build:nativelink --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
 # Depending on the nativelink configuration this might need to be adjusted.
 build:nativelink --remote_instance_name=main
 
+# Select the correct toolchains.
+build:nativelink --extra_execution_platforms=@local-remote-execution//generated-cc/config:platform
+build:nativelink --extra_toolchains=@local-remote-execution//generated-cc/config:cc-toolchain"
+build:nativelink --extra_toolchains=@local-remote-execution//generated-java/java:all"
+
 # TODO(aaronmondal): Either set the correct values in this file or add them to
 #                    the Bazel build command.
-build:nativelink --remote_cache=grpc://172.18.255.1:50051
-build:nativelink --remote_executor=grpc://172.18.255.12:50052
+# build:nativelink --remote_cache=grpc://172.18.255.10:50051
+# build:nativelink --remote_executor=grpc://172.18.255.9:50052
