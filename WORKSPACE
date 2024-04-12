@@ -61,8 +61,8 @@ http_archive(
 http_archive(
     name = "local-remote-execution",
     urls = [
-        "https://github.com/aaronmondal/nativelink/archive/5101508a2573bdb95c2fb90312b04e2eab4ed6bb.zip",
+        "https://github.com/TraceMachina/nativelink/archive/refs/tags/v0.3.0.zip",
     ],
-    integrity = "sha256-btzdD+vVfX+uvuEWyGPyKnkYGdCD3gBPFWiKXR+gmk4=",
-    strip_prefix = "nativelink-5101508a2573bdb95c2fb90312b04e2eab4ed6bb/local-remote-execution",
+    integrity = "sha256-p6G8j2YHISsN/28ZVWDtVOQYgi0H5/eEPPE6s7AAbfk=",
+    strip_prefix = "nativelink-0.3.0/local-remote-execution",
 )
